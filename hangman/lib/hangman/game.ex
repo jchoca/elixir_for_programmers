@@ -66,7 +66,6 @@ defmodule Hangman.Game do
 
   defp reveal_guessed(letters, used) do
     letters
-    |> IO.inspect()
     |> Enum.map(fn letter -> reveal_letter(letter, MapSet.member?(used, letter)) end)
   end
 
