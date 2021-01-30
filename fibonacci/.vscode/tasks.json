@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "fib",
+            "type": "shell",
+            "command": "mix.bat run -e \"Fibonacci.fib(2)\"",
+            "problemMatcher": []
+        }
+    ]
+}
