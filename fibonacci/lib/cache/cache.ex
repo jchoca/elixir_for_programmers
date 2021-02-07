@@ -10,15 +10,6 @@ defmodule Cache do
   end
 
   def get(agent, key) do
-    value = Agent.get(agent, fn state -> Map.get(state, key) end)
-    {get_result_atom(value), value}
-  end
-
-  defp get_result_atom(nil) do
-    :miss
-  end
-
-  defp get_result_atom(_) do
-    :hit
+    Agent.get(agent, fn state -> Map.get(state, key) end)
   end
 end
