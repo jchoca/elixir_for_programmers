@@ -3,16 +3,9 @@ defmodule Hangman.Application do
 
   def start(_type, _args) do
     children = [
-      %{
-        id: Hangman.Server,
-        start: {Hangman.Server, :start_link, []}
-      }
+      {DynamicSupervisor, name: Hangman.Supervisor, strategy: :one_for_one}
     ]
 
-    options = [
-      name: Hangman.Supervisor,
-      strategy: :simple_one_for_one
-    ]
-    Supervisor.start_link(children, options)
+    Supervisor.start_link(children, strategy: :one_for_one)
   end
 end
