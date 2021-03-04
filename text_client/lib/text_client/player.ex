@@ -6,7 +6,6 @@ defmodule TextClient.Player do
   end
 
   def play(state = %State{tally: %{ game_state: :lost }}) do
-    IO.inspect(Enum.join(state.game_service.letters, ""))
     exit_with_message("Sorry, you lost.")
   end
 
