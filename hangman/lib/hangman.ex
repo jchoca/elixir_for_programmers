@@ -1,6 +1,12 @@
 defmodule Hangman do
-  def new_game() do
+  def new_game(node) do
     {:ok, pid} = DynamicSupervisor.start_child(Hangman.Supervisor, {Hangman.Server, fn -> %{} end})
+    Hangman.GameTracker.add_client(node)
+    IO.puts("client list")
+    IO.inspect(Hangman.GameTracker.get_client_list())
+
+    IO.puts("node list")
+    IO.inspect(Node.list())
     pid
   end
 

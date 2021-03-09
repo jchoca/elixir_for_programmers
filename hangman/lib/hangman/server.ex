@@ -4,7 +4,7 @@ defmodule Hangman.Server do
 
   use GenServer
 
-  def start_link(_args) do
+  def start_link(_) do
     GenServer.start_link(__MODULE__, nil)
   end
 
