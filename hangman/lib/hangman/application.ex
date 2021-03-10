@@ -5,7 +5,7 @@ defmodule Hangman.Application do
     children = [
       {DynamicSupervisor, name: Hangman.Supervisor, strategy: :one_for_one},
       {Hangman.GameTracker, name: Hangman.GameTracker, strategy: :one_for_one},
-      {Hangman.GameMonitor, name: Hangman.GameMonitor, strategy: :one_for_one}
+      {Hangman.NodeMonitor, name: Hangman.NodeMonitor, strategy: :one_for_one}
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one)
